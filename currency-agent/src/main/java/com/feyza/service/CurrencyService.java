@@ -19,7 +19,6 @@ public class CurrencyService {
         this.restClient = builder.baseUrl("https://api.frankfurter.dev/v1").build();
     }
 
-    /** Convertit un montant d'une devise vers une autre (taux ECB du dernier jour ouvré). */
     public BigDecimal convert(BigDecimal amount, String from, String to) {
         String base = normalize(from);
         String target = normalize(to);
