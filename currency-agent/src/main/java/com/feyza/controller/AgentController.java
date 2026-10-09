@@ -22,11 +22,6 @@ public class AgentController {
     private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(AgentController.class);
 
     public AgentController(ChatClient.Builder builder, ToolCallbackProvider mcpTools) {
-        var callbacks = mcpTools.getToolCallbacks();
-        log.info("OUTILS MCP DÉCOUVERTS : {}", callbacks.length);
-        for (var cb : callbacks) {
-            log.info("OUTIL MCP : {} - {}", cb.getToolDefinition().name(), cb.getToolDefinition().description());
-        }
         this.chatClient = builder
                 .defaultSystem(SYSTEM_PROMPT)
                 .defaultTools(mcpTools)

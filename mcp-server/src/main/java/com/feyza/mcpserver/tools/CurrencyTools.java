@@ -29,13 +29,11 @@ public class CurrencyTools {
             @ToolParam(description = "Le montant à convertir, par exemple 100") double amount,
             @ToolParam(description = "Code ISO de la devise source sur 3 lettres, par exemple USD") String from,
             @ToolParam(description = "Code ISO de la devise cible sur 3 lettres, par exemple EUR") String to) {
-        log.info("TOOL APPELÉ : {} {} -> {}", amount, from, to);
         try {
             BigDecimal result = currencyService.convert(BigDecimal.valueOf(amount), from, to);
-            log.info("TOOL RÉSULTAT : {}", result);
             return new ConversionOutput(amount, from.toUpperCase(), to.toUpperCase(), result);
         } catch (RuntimeException e) {
-            log.error("TOOL ERREUR", e);
+            log.error("erreur execution du tool : ", e);
             throw e;
         }
     }
