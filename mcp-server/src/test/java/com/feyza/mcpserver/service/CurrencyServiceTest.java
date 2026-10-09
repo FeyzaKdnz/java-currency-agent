@@ -1,4 +1,4 @@
-package com.feyza.service;
+package com.feyza.mcpserver.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;

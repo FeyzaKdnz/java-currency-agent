@@ -1,4 +1,4 @@
-package com.feyza.service;
+package com.feyza.mcpserver.service;
 
 import java.math.BigDecimal;
 import java.util.Map;

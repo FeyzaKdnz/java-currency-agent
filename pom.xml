@@ -22,6 +22,7 @@
     </description>
     <modules>
         <module>currency-agent</module>
+        <module>mcp-server</module>
     </modules>
 
     <packaging>pom</packaging>

@@ -1,4 +1,4 @@
-package com.feyza.tools;
+package com.feyza.mcpserver.tools;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 
 import org.junit.jupiter.api.Test;
 
-import com.feyza.service.CurrencyService;
+import com.feyza.mcpserver.service.CurrencyService;
 
 class CurrencyToolsTest {
 

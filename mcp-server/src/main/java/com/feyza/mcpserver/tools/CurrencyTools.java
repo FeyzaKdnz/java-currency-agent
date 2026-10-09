@@ -1,4 +1,4 @@
-package com.feyza.tools;
+package com.feyza.mcpserver.tools;
 
 import java.math.BigDecimal;
 
@@ -8,7 +8,7 @@ import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.stereotype.Component;
 
-import com.feyza.service.CurrencyService;
+import com.feyza.mcpserver.service.CurrencyService;
 
 @Component
 public class CurrencyTools {
