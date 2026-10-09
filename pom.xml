@@ -23,6 +23,7 @@
     <modules>
         <module>currency-agent</module>
         <module>mcp-server</module>
+        <module>a2a-client</module>
     </modules>
 
     <packaging>pom</packaging>
