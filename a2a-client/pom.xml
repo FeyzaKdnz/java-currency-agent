@@ -21,6 +21,7 @@
             <artifactId>a2a-java-sdk-client</artifactId>
             <version>0.3.3.Final</version>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -28,6 +29,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
+                <version>3.6.4</version>
                 <configuration>
                     <mainClass>com.feyza.a2aclient.A2aTestClient</mainClass>
                 </configuration>
