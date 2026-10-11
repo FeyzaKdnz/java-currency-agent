@@ -24,6 +24,7 @@
         <module>currency-agent</module>
         <module>mcp-server</module>
         <module>a2a-client</module>
+        <module>fx-exposure-agent</module>
     </modules>
 
     <packaging>pom</packaging>
