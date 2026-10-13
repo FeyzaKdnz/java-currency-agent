@@ -1,0 +1,48 @@
+services:
+  mcp-server:
+    build:
+      context: .
+      args:
+        MODULE: mcp-server
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c '</dev/tcp/localhost/8080'"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  currency-agent:
+    build:
+      context: .
+      args:
+        MODULE: currency-agent
+    environment:
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY:?Définir GOOGLE_API_KEY dans le fichier .env}
+      MCP_SERVER_URL: http://mcp-server:8080
+      A2A_PUBLIC_URL: http://currency-agent:10000/a2a/
+    ports:
+      - "10000:10000"
+    depends_on:
+      mcp-server:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c '</dev/tcp/localhost/10000'"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  fx-exposure-agent:
+    build:
+      context: .
+      args:
+        MODULE: fx-exposure-agent
+    environment:
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY:?Définir GOOGLE_API_KEY dans le fichier .env}
+      CURRENCY_AGENT_URL: http://currency-agent:10000
+      A2A_PUBLIC_URL: http://localhost:10001/a2a/
+    ports:
+      - "10001:10001"
+    depends_on:
+      currency-agent:
+        condition: service_healthy

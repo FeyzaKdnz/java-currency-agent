@@ -33,10 +33,10 @@ public class A2aConfig {
         """;
 
     @Bean
-    public AgentCard agentCard(@Value("${A2A_PUBLIC_URL:http://localhost:10001/a2a/}") String publicUrl) {
+    public AgentCard agentCard(@Value("${A2A_PUBLIC_URL:http://localhost:10000/a2a/}") String publicUrl) {
         return new AgentCard.Builder()
-                .name("FX Exposure Agent")
-                .description("Analyse l'exposition de change d'un ensemble de positions multi-devises")
+                .name("Currency Agent")
+                .description("Convertit des montants entre devises avec les taux de référence de la BCE")
                 .url(publicUrl)
                 .version("1.0.0")
                 .capabilities(new AgentCapabilities.Builder().streaming(false).build())
