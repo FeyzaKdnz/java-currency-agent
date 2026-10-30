@@ -26,11 +26,11 @@ public class A2aConfig {
         """;
 
     @Bean
-    public AgentCard agentCard(@Value("${server.port}") int port) {
+    public AgentCard agentCard(@Value("${A2A_PUBLIC_URL:http://localhost:10000/a2a/}") String publicUrl) {
         return new AgentCard.Builder()
                 .name("Currency Agent")
                 .description("Convertit des montants entre devises avec les taux de référence de la BCE")
-                .url("http://localhost:" + port + "/a2a/")
+                .url(publicUrl)
                 .version("1.0.0")
                 .capabilities(new AgentCapabilities.Builder().streaming(false).build())
                 .defaultInputModes(List.of("text"))
